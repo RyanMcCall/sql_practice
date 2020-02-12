@@ -24,7 +24,7 @@ WHERE ID = '1661';
 -- https://www.hackerrank.com/challenges/japanese-cities-name/problem
 -- Query the names of all the Japanese cities in the CITY table. 
 -- The COUNTRYCODE for Japan is JPN.
-SELECT name FROM city
+SELECT * FROM city
 WHERE CountryCode = 'JPN';
 
 -- https://www.hackerrank.com/challenges/weather-observation-station-1/problem
