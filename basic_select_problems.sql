@@ -135,3 +135,7 @@ WHERE RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u')
 -- names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary
 -- sort them by ascending ID.
 
+SELECT `name`
+FROM students
+WHERE marks > 75
+ORDER BY RIGHT(`name`, 3), id;
