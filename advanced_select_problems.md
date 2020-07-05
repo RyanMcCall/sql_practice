@@ -110,17 +110,64 @@ There are a total of 3 professors.
 The results of the first query are formatted to the problem description's specifications.
 The results of the second query are ascendingly ordered first by number of names corresponding to each profession $(2 \leq 2 \leq 3 \leq 3)$, and then alphabetically by profession $(doctor \leq singer$, and $actor \leq professor)$.
 
+### My Solution
+
 ```mysql
 
 SELECT CONCAT(`name`, '(', LEFT(occupation, 1), ')') AS name_occupation
 FROM occupations
-ORDER BY name_occupation
+ORDER BY name_occupation;
 
-SELECT CONCAT('There are a total of ', name_count, ' ', occupation)
+SELECT CONCAT('There are a total of ', name_count, ' ', occupation, 's.')
 FROM(
     SELECT LOWER(occupation) AS occupation, COUNT(name) AS name_count
     FROM occupations
-    ORDER BY name_count ASC, occupation DESC
+    GROUP BY occupation
+    ORDER BY name_count ASC, occupation ASC
     ) AS sub_1
 
 ```
+
+## Occupations
+
+Pivot the Occupation column in **OCCUPATIONS** so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+
+**Note**: Print **NULL** when there are no more names corresponding to an occupation.
+
+### Input Format
+
+The **OCCUPATIONS** table is described as follows:
+
+![occupations table](https://s3.amazonaws.com/hr-challenge-images/12889/1443816414-2a465532e7-1.png 'occupations table')
+
+Occupation will only contain one of the following values: **Doctor, Professor, Singer** or **Actor**.
+
+### Sample Input
+
+![occupation table](https://s3.amazonaws.com/hr-challenge-images/12890/1443817648-1b2b8add45-2.png 'occupations table')
+
+### Sample Output
+
+```
+
+Jenny    Ashley     Meera  Jane
+Samantha Christeen  Priya  Julia
+NULL     Ketty      NULL   Maria
+
+```
+
+### Explanation
+
+The first column is an alphabetically ordered list of Doctor names.
+
+The second column is an alphabetically ordered list of Professor names.
+
+The third column is an alphabetically ordered list of Singer names.
+
+The fourth column is an alphabetically ordered list of Actor names.
+
+The empty cell data for columns with less than the maximum number of names per occupation (in this case, the Professor and Actor columns) are filled with **NULL** values.
+
+### My Solution
+
+No solution at this time.
