@@ -41,3 +41,24 @@ SELECT SUM(POPULATION)
 FROM city
 WHERE district = 'California';
 ```
+
+## [Revising Aggregations - Averages](https://www.hackerrank.com/challenges/revising-aggregations-the-average-function/problem)
+
+### Problem
+
+Query the average population of all cities in **CITY** where District is **California**.
+
+### Input Format
+
+
+The **CITY** table is described as follows:
+
+![city table](https://s3.amazonaws.com/hr-challenge-images/8137/1449729804-f21d187d0f-CITY.jpg 'city table')
+
+### My Solution
+
+```mysql
+SELECT AVG(population)
+FROM city
+WHERE district = 'California';
+```
